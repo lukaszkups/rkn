@@ -1,28 +1,15 @@
 {
   "name": "rkn-core",
-  "version": "0.0.1",
-  "description": "Core of the rkn engine",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lukaszkups/rkn.git"
-  },
-  "keywords": [
-    "game",
-    "engine",
-    "engine",
-    "gamedev",
-    "canvas",
-    "javascript",
-    "typescript"
-  ],
-  "author": "lukaszkups",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lukaszkups/rkn/issues"
-  },
-  "homepage": "https://github.com/lukaszkups/rkn#readme"
+  "devDependencies": {
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
 }
