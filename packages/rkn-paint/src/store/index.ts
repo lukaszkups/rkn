@@ -28,7 +28,7 @@ const store = createStore({
         localStorage.getItem('rkn-paint-store') || '{}',
       );
       Object.keys(savedState).forEach((key) => {
-        // console.log(key, savedState[key]);
+        console.log(key, savedState[key]);
         if (context.state.hasOwnProperty(key)) {
           context.commit('updateProp', { name: key, value: savedState[key] });
         }
@@ -40,6 +40,12 @@ const store = createStore({
         JSON.stringify(context.state || {}),
       );
     },
+    createSprite(context: KeyableInterface) {
+      const sprite = [];
+      for(let x = 0; x < context.state.spriteSize; x++) {
+        sprite.push(new Array(context.state.spriteSize));
+      }
+    }
   }
 });
 

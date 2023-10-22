@@ -19,16 +19,23 @@ const activeColor = computed({
     return store.state.activeColor | 0;
   },
   set(newVal) {
-    store.dispatch('updateProp', { name: 'activeColor', newVal });
+    store.dispatch('updateProp', { name: 'activeColor', value: newVal });
   }
 })
 
-const getColorSquareStyle = (color) => {
+const getColorSquareStyle = (color: string) => {
   return `background-color: ${color}`;
 }
 
-const getColorListItemStyles = (colorId) => {
-  
+const getColorListItemClasses = (colorId: number | string) => {
+  return {
+    'rkn-list-item': true,
+    'rkn-list-item--active': Number(colorId) === Number(activeColor.value)
+  }
+}
+
+const selectColor = (colorId: number) => {
+  activeColor.value = colorId;
 }
 </script>
 <template>
@@ -36,6 +43,8 @@ const getColorListItemStyles = (colorId) => {
   <li 
     v-for="color in colorList"
     :key="color.key"
+    :class="getColorListItemClasses(color.key)"
+    @click="selectColor(color.key as unknown as number)"
   >
   <span 
     class="rkn-color-square"
@@ -47,7 +56,7 @@ const getColorListItemStyles = (colorId) => {
 </template>
 <style lang="scss">
 .rkn-list--color {
-  li {
+  .rkn-list-item {
     padding: 3px 5px 3px 10px;
     display: block;
     cursor: pointer;
@@ -55,7 +64,16 @@ const getColorListItemStyles = (colorId) => {
     &:hover {
       background-color: var(--rkn-shadow-color);
     }
+
+    &--active {
+      color: crimson;
+      
+      .rkn-color-square {
+        border-color: crimson;
+      }
+    }
   }
+
 }
 .rkn-color-square {
   display: inline-block;

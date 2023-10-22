@@ -14,6 +14,5 @@ a
   min-height: 100vh;
   box-shadow: var(--rkn-shadow);
   box-sizing: border-box;
-  // padding: 10px 10px 10px 15px;
 }
 </style>
