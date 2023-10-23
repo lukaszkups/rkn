@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import Modal from './Modal.vue';
+import RknInput from './RknInput.vue';
 
 const modalVisibility = ref(true);
 const spriteName = ref('');
@@ -9,9 +10,9 @@ const spriteName = ref('');
 <modal
   v-model:modal-visibility="modalVisibility"
 >
-  <input 
-    type="text" 
-    class="rkn-input" 
+  <p>{{ spriteName }}</p>
+  <rkn-input 
+    label="Sprite name"
     v-model="spriteName"
   />
 </modal>

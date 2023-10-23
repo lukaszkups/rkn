@@ -17,6 +17,10 @@ body {
 
 .rkn-col {
   flex: 1;
+
+  &--2 {
+    flex: 2;
+  }
 }
 
 .rkn-list {
