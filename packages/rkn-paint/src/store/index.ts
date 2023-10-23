@@ -40,11 +40,17 @@ const store = createStore({
         JSON.stringify(context.state || {}),
       );
     },
-    createSprite(context: KeyableInterface) {
-      const sprite = [];
+    createSprite(context: KeyableInterface, spriteName: string) {
+      const frames = [];
       for(let x = 0; x < context.state.spriteSize; x++) {
-        sprite.push(new Array(context.state.spriteSize));
+        frames.push(new Array(context.state.spriteSize));
       }
+      const spriteId = Object.keys(context.state.sprites).length + 1;
+      const newSprite = {
+        id: spriteId,
+        animations: [frames]
+      }
+      context.commit('createSprite', newSprite);
     }
   }
 });
