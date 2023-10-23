@@ -23,10 +23,15 @@ const modalVisibilityLocal = computed({
   }
 })
 const spriteName = ref('');
+
+const onSubmit = () => {
+  
+}
 </script>
 <template>
 <modal
   v-model:modal-visibility="modalVisibilityLocal"
+  @on-submit="onSubmit"
 >
   <rkn-input 
     label="Sprite name"
