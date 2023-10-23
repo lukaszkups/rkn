@@ -1,6 +1,8 @@
 :root {
   --rkn-shadow-color: #C6C6C6;
   --rkn-shadow: 0px 0px 5px 0px var(--rkn-shadow-color);
+  --rkn-primary-color: #5295f3;
+  --rkn-primary-border: #4384df;
 }
 
 body {
@@ -21,4 +23,29 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.rkn-btn {
+  outline: none;
+  border: 1px solid var(--rkn-shadow-color);
+  box-shadow: var(--rkn-shadow-color);
+  padding: 5px;
+  background: #fff;
+  box-sizing: border-box;
+  border-radius: 3px;
+  
+  &:hover {
+    cursor: pointer;
+    background: #efefef;
+  }
+
+  &--primary {
+    background-color: var(--rkn-primary-color);
+    color: #fff;
+    border-color: var(--rkn-primary-border);
+
+    &:hover {
+      background-color: var(--rkn-primary-border);
+    }
+  }
 }
