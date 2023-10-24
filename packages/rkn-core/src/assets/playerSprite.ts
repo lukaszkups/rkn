@@ -9,8 +9,8 @@ export const playerSprite = {
       [ undefined, undefined, 0, 1, 1, 0, undefined, undefined ],
       [ undefined, 0, 1, 0, 0, 1, 0, undefined ],
       [ undefined, 0, undefined, 0, 0, undefined, 0, undefined ],
-      [ undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined ],
-      [ undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined ],
+      [ undefined, undefined, 0, undefined, undefined, 0, undefined, undefined ],
+      [ undefined, undefined, 0, undefined, undefined, 0, undefined, undefined ],
       [ undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined ],
     ],
     [

@@ -5,11 +5,13 @@ export default class Renderer {
   sprites: KeyableInterface;
   rkn: Rkn;
   imgData: ImageData;
+  canvasClampSize: number;
 
   constructor(rkn: Rkn) {
     this.sprites = {};
     this.rkn = rkn;
-    this.imgData = rkn.ctx.createImageData(1, 1);
+    this.imgData = rkn.ctx.createImageData(this.rkn.gameCanvas?.clientWidth as number, this.rkn.gameCanvas?.clientHeight as number);
+    this.canvasClampSize = (this.imgData.width || 0) * (this.imgData.height || 0) * 4;
   }
 
   hexToRgb (hexStr: String) {
@@ -43,18 +45,22 @@ export default class Renderer {
           // newPos.push(pos[0] + pixelIndex);
           // newPos.push(pos[1] + rowIndex);
           const color = this.sprites[spriteEnumName].colors[pixel];
-          console.log(newPos, color)
           this.drawPixel(newPos, color);
         }
       });
     });
+    console.log(this.imgData.data);
+    this.rkn.ctx.putImageData(this.imgData, 0, 0);
   }
 
   drawPixel (pos: number[], color: RgbObject) {
     const data = this.imgData.data;
-    data[0] = Number(color.r);
-    data[1] = Number(color.g);
-    data[2] = Number(color.b);
-    this.rkn.ctx.putImageData(this.imgData, pos[0], pos[1]);
+    const coords = (pos[0] + (pos[1] * this.imgData.width)) * 4;
+    data[coords] = Number(color.r);
+    data[coords + 1] = Number(color.g);
+    data[coords + 2] = Number(color.b);
+    data[coords + 3] = 255; // no transparency handling :)
+    // this.rkn.ctx.putImageData(this.imgData, pos[0], pos[1]);
+    console.log(pos, color);
   }
 }
