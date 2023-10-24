@@ -11,7 +11,7 @@ export default class Rkn {
     this.gameCanvas = document.getElementById(gameCanvasId) as HTMLCanvasElement;
     this.ctx = this.gameCanvas.getContext('2d') as CanvasRenderingContext2D;
     this.renderer = new Renderer(this);
-    console.log(this)
+    console.info('Rkn created!', this);
   }
 }
 

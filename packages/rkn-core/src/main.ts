@@ -10,4 +10,5 @@ setTimeout(() => {
   const rkn = new Rkn('game-canvas');
   rkn.renderer.loadSprite(playerSprite, 'player');
   rkn.renderer.drawSprite('player', 0, [5, 5]);
+  rkn.renderer.drawSprite('player', 1, [16, 6]);
 }, 0);

@@ -15,7 +15,6 @@ export default class Renderer {
   }
 
   hexToRgb (hexStr: String) {
-    // const hex = hexStr.replace('#', '');
     const hex = hexStr;
     return {
       r: parseInt(hex.substring(1, 3), 16),
@@ -42,25 +41,20 @@ export default class Renderer {
             pos[0] + pixelIndex,
             pos[1] + rowIndex
           ];
-          // newPos.push(pos[0] + pixelIndex);
-          // newPos.push(pos[1] + rowIndex);
           const color = this.sprites[spriteEnumName].colors[pixel];
           this.drawPixel(newPos, color);
         }
       });
     });
-    console.log(this.imgData.data);
     this.rkn.ctx.putImageData(this.imgData, 0, 0);
   }
 
-  drawPixel (pos: number[], color: RgbObject) {
+  drawPixel (pos: number[], color: RgbObject, opacity: number = 255) {
     const data = this.imgData.data;
     const coords = (pos[0] + (pos[1] * this.imgData.width)) * 4;
     data[coords] = Number(color.r);
     data[coords + 1] = Number(color.g);
     data[coords + 2] = Number(color.b);
-    data[coords + 3] = 255; // no transparency handling :)
-    // this.rkn.ctx.putImageData(this.imgData, pos[0], pos[1]);
-    console.log(pos, color);
+    data[coords + 3] = opacity;
   }
 }
