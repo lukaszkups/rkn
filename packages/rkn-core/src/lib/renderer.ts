@@ -57,6 +57,7 @@ export default class Renderer {
         });
       });
     });
+    this._ctx.putImageData(this._imgData, 0, 0);
   }
 
   _drawPixel (pos: number[], color: RgbObject, opacity: number = 255) {
