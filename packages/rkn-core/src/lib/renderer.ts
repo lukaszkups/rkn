@@ -46,7 +46,7 @@ export default class Renderer {
     this.sprites[spriteEnumName].frames.forEach((frame: any[], frameIndex: number) => {
       frame.forEach((frameRow: (number | undefined)[], rowIndex: number) => {
         frameRow.forEach((pixel: number | undefined, pixelIndex: number) => {
-          if (pixel !== undefined) {
+          if (pixel) {
             const newPos = [
               (frameIndex * sprite.size) + pixelIndex,
               (sprite.id * sprite.size) + rowIndex

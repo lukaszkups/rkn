@@ -1,6 +1,7 @@
 import './style.css'
 import Rkn from './lib/rkn';
 import { playerSprite } from './assets/playerSprite';
+import { font } from './assets/font';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <canvas id="game-canvas" width="320" height="240"></canvas>
@@ -14,5 +15,7 @@ setTimeout(() => {
   setTimeout(() => {
     rkn.ctx.clearRect(0, 0, rkn.gameCanvas?.width as number, rkn.gameCanvas?.height as number);
     rkn.renderer.drawSprite('player', 1, [26, 26]);
+    rkn.renderer.loadSprite(font, 'font');
+    rkn.renderer.drawSprite('font', 1, [26, 6]);
   }, 1000)
 }, 0);
