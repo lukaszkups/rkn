@@ -22,6 +22,8 @@ export default class RknFont {
     this._canvas.height = 80; // 8 * 10 -> for now let's support fixed 10 fonts
     this.currentFont = 0; // first loaded one will be used
     this.defaultLineLength = 30;
+    // TODO: if want to debug atlas canvas
+    document.getElementById('app')?.appendChild(this._canvas);
   }
 
   hexToRgb (hexStr: String) {
@@ -83,13 +85,12 @@ export default class RknFont {
   }
 
   drawLetter (letterCode: number, pos: number[]) {
-    // const fontSprite = this.fonts[this.currentFont];
-    const x1 = this.currentFont + (letterCode - 40) * 8;
+    const x1 = (letterCode - 32) * 8;
     const y1 = this.currentFont * 8;
     const x2 = x1 + 8;
     const y2 = y1 + 8;
     const frameFromAtlas = this._ctx.getImageData(x1, y1, x2, y2);
-    console.log(letterCode, x1, x2, pos);
+    console.log(String.fromCharCode(letterCode), letterCode, x1, y1, x2, y2, frameFromAtlas);
     this.rkn.ctx.putImageData(frameFromAtlas, pos[0], pos[1]);
   }
 }

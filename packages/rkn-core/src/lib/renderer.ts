@@ -20,6 +20,13 @@ export default class Renderer {
     this._imgData = this._ctx.createImageData(this._canvas?.width as number, this._canvas?.height as number);
     // TODO: if want to debug atlas canvas
     // document.getElementById('app')?.appendChild(this._canvas);
+    // TODO - make canvas always resize to integer values
+    // document.addEventListener('resize', () => {
+    //   if (this.rkn.gameCanvas) {
+    //     this.rkn.gameCanvas.style.width = String(parseInt(this.rkn.gameCanvas.style.width as unknown as string));
+    //     this.rkn.gameCanvas.style.height = String(parseInt(this.rkn.gameCanvas.style.height as unknown as string));
+    //   }
+    // });
   }
 
   hexToRgb (hexStr: String) {

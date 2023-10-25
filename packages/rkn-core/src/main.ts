@@ -10,12 +10,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 setTimeout(() => {
   const rkn = new Rkn('game-canvas');
   rkn.renderer.loadSprite(playerSprite, 'player');
+  rkn.font.loadFont(font, 'font');
   rkn.renderer.drawSprite('player', 0, [5, 5]);
   rkn.renderer.drawSprite('player', 1, [16, 6]);
   setTimeout(() => {
-    rkn.ctx.clearRect(0, 0, rkn.gameCanvas?.width as number, rkn.gameCanvas?.height as number);
+    // rkn.ctx.clearRect(0, 0, rkn.gameCanvas?.width as number, rkn.gameCanvas?.height as number);
     rkn.renderer.drawSprite('player', 1, [26, 26]);
-    rkn.font.loadFont(font, 'font');
-    rkn.font.drawText('$@!%^&*()#@&*^#@$%@^#^%&@*&($@($^@^#%^$^@%#@#^%@^$^&*@^*&', [3, 1]);
+    rkn.font.drawText('!!!!!"""####%^&*()#@&*^#@$%@^#^%&@*&($@($^@^#%^$^@%#@#^%@^$^&*@^*&', [30, 100]);
   }, 1000)
 }, 0);
