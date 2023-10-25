@@ -18,7 +18,8 @@ export default class Renderer {
     this._canvas.height = 1024;
     this._ctx = this._canvas.getContext('2d') as CanvasRenderingContext2D;
     this._imgData = this._ctx.createImageData(this._canvas?.width as number, this._canvas?.height as number);
-    document.getElementById('app')?.appendChild(this._canvas);
+    // TODO: if want to debug atlas canvas
+    // document.getElementById('app')?.appendChild(this._canvas);
   }
 
   hexToRgb (hexStr: String) {
