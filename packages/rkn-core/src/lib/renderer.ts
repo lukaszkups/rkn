@@ -30,7 +30,7 @@ export default class Renderer {
       b: parseInt(hex.substring(5, 7), 16)
     }
   }
-
+// 93 - amount of font chars
   loadSprite (sprite: Sprite, spriteEnumName: string) {
     const newSprite = { ...sprite };
     Object.keys(newSprite.colors).map((colorId) => {
@@ -51,7 +51,6 @@ export default class Renderer {
               (frameIndex * sprite.size) + pixelIndex,
               (sprite.id * sprite.size) + rowIndex
             ];
-            console.info(newPos)
             const color = this.sprites[spriteEnumName].colors[pixel];
             this._drawPixel(newPos, color);
           }
@@ -77,24 +76,6 @@ export default class Renderer {
     const x2 = x1 + sprite.size;
     const y2 = y1 + sprite.size;
     const frameFromAtlas = this._ctx.getImageData(x1, y1, x2, y2);
-    console.log(frameFromAtlas)
     this.rkn.ctx.putImageData(frameFromAtlas, pos[0], pos[1]);
   }
-
-    // saveSpriteOnAtlas (spriteEnumName: string, frameNumber: number, pos: number[]) {
-    //   const frame = this.sprites[spriteEnumName].frames[frameNumber];
-    //   frame.forEach((frameRow: (number | undefined)[], rowIndex: number) => {
-    //     frameRow.forEach((pixel: number | undefined, pixelIndex: number) => {
-    //       if (pixel !== undefined) {
-    //         const newPos = [
-    //           pos[0] + pixelIndex,
-    //           pos[1] + rowIndex
-    //         ];
-    //         const color = this.sprites[spriteEnumName].colors[pixel];
-    //         this.drawPixel(newPos, color);
-    //       }
-    //     });
-    //   });
-    //   // this.rkn.ctx.putImageData(this.imgData, 0, 0);
-    // }
 }

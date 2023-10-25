@@ -15,7 +15,7 @@ setTimeout(() => {
   setTimeout(() => {
     rkn.ctx.clearRect(0, 0, rkn.gameCanvas?.width as number, rkn.gameCanvas?.height as number);
     rkn.renderer.drawSprite('player', 1, [26, 26]);
-    rkn.renderer.loadSprite(font, 'font');
-    rkn.renderer.drawSprite('font', 1, [26, 6]);
+    rkn.font.loadFont(font, 'font');
+    rkn.font.drawText('$@!%^&*()#@&*^#@$%@^#^%&@*&($@($^@^#%^$^@%#@#^%@^$^&*@^*&', [3, 1]);
   }, 1000)
 }, 0);
