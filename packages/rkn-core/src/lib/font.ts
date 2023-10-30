@@ -47,6 +47,7 @@ export default class RknFont {
   _saveSpriteOnAtlas (fontEnumName: string) {
     const font = this.fonts[fontEnumName];
     this.fonts[fontEnumName].frames.forEach((frame: any[], frameIndex: number) => {
+      console.log(fontEnumName, String.fromCharCode(frameIndex+32), frameIndex, frameIndex*8);
       frame.forEach((frameRow: (number | undefined)[], rowIndex: number) => {
         frameRow.forEach((pixel: number | undefined, pixelIndex: number) => {
           if (pixel) {
@@ -90,7 +91,7 @@ export default class RknFont {
     const x2 = x1 + 8;
     const y2 = y1 + 8;
     const frameFromAtlas = this._ctx.getImageData(x1, y1, x2, y2);
-    console.log(String.fromCharCode(letterCode), letterCode, x1, y1, x2, y2, frameFromAtlas);
+    // console.log(String.fromCharCode(letterCode), letterCode, x1, y1, x2, y2, frameFromAtlas);
     this.rkn.ctx.putImageData(frameFromAtlas, pos[0], pos[1]);
   }
 }
